@@ -469,7 +469,10 @@ public class GosuDao {
 					}
 					
 				} catch (Exception e) {
-
+					e.getMessage();
+				}
+			}
+		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 			e.getMessage();
