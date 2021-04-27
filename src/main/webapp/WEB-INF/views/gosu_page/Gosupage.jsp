@@ -1,3 +1,4 @@
+<%@page import="kr.or.team3.dao.ChartDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -5,9 +6,16 @@
 <!-- header -->
 <%
 	String g_email = request.getParameter("email");
-	String m_email = (String)session.getAttribute("ID");
-
+	ChartDao dao = new ChartDao();
+	
+	int totalGosuRQCount = dao.totalGosuRQCount(g_email);
+	int totalHireCount = dao.totalHireCount(g_email);
+	
 %>
+<c:set var = 'totalrq' value = '<%=totalGosuRQCount%>'/>
+<c:set var = 'totalhire' value = '<%=totalHireCount%>'/>
+
+
 <jsp:include page="/WEB-INF/views/include/head.jsp"></jsp:include>
 
 <%@ taglib prefix= "c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -24,7 +32,6 @@
    </script>
 	<c:set var="gosu_email" value='<%=request.getParameter("email")%>'></c:set>
 	<body>
-	
 	<div class="app-body">
 	
 	 <div class="container">
@@ -122,6 +129,10 @@
 		       <button style="display: none"  id="edit_btn" onclick="location.href='#'">수정하기</button >
        </div>  
         
+	</div>
+	
+	<div class = "chart">
+  		<canvas id="myChart"></canvas>
 	</div>
     </body>
     <script type="text/javascript">
@@ -244,6 +255,7 @@
 	$('#reviewboard').click(function(){
 		$.ajax({
     		url : "ReviewWriteShow_Ajax",
+    		data: {email : email},
     		dataType:"HTML",
 			success: function(responsedata){
 			console.log(responsedata);
@@ -256,7 +268,7 @@
 					console.log(clickstar);
 					$('.make_star > i').css({color : '#000'});
 					console.log($('.make_star > i'));
-					$('.make_star > i:nth-child(-n +' + clickstar +')').css({color: '#F05522'});
+					$('.make_star > i:nth-child(-n +' + clickstar +')').css({color: '#000'});
 					console.log($('.make_star > i:nth-child(-n + '+clickstar+')'));
 				});
 			}    		
@@ -290,8 +302,41 @@
 			location.href = 'WriteRQ.go?email=${gosu_email}&code=' + d_code;
 		}
     });
+	//차트
+    const labels = ['고수가 받은 누적 요청서', '총 고용 휫수'];
+    const data = {
+      labels: labels,
+      datasets: [{
+    	label: '',
+        data: [${totalrq} ,${totalhire}],
+        backgroundColor: [
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)'
+        ],
+        borderColor: [
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)'
+        ],
+        borderWidth: 1
+      }]
+    };
 
-
+    const config = {
+    		  type: 'bar',
+    		  data: data,
+    		  options: {
+    		    scales: {
+    		      y: {
+    		        beginAtZero: true
+    		      }
+    		    }
+    		  },
+    		};
+    		
+    var myChart = new Chart(
+    	    document.getElementById('myChart'),
+    	    config
+    	  );
 	</script>
     </html>
     

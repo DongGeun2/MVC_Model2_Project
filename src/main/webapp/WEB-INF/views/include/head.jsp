@@ -40,6 +40,10 @@
 	<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 	<!-- iconmonster -->
 	<link rel="stylesheet"href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
+	<!-- chart.js -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<!-- move page -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body class="host_version"> 
 

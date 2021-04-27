@@ -16,7 +16,7 @@ String ps = request.getParameter("ps");
 
 
 if (ps == null || ps.trim().equals("")) {
-	ps = "10";
+	ps = "99";
 }
 
 if (cp == null || cp.trim().equals("")) {
@@ -55,8 +55,9 @@ int totalRQcount = dao.totalRQMemberCount(M_email);
 	</div>	
 </div>	
 		<!-- end title -->
+		
 		<div class="container">
-		<div class="RQ_box">
+		<div class="RQ_box" id = "sendbox">
 		<h2><b>보낸 요청서</b></h2>
 		</div>
 		
@@ -86,7 +87,7 @@ int totalRQcount = dao.totalRQMemberCount(M_email);
 		<!-- ================================================================================= -->
 		
 		
-		<div class="RQ_box">
+		<div class="RQ_box" id = "conpletebox">
 		<hr>
 		<h2><b>처리가 완료된 요청서</b></h2>
 		</div>
@@ -117,7 +118,7 @@ int totalRQcount = dao.totalRQMemberCount(M_email);
 			</c:forEach>
 		</div>
 	</div>	
-
+	
 <script type="text/javascript">
 	$('.RQ_Detail_modal').hide();
 	$('.RQ').click(function(){
@@ -148,6 +149,7 @@ int totalRQcount = dao.totalRQMemberCount(M_email);
 			
 		})
 	})
+	
 	
 	
 

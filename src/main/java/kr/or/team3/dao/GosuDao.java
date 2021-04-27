@@ -472,6 +472,7 @@ public class GosuDao {
 					e.getMessage();
 				}
 			}
+		
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
