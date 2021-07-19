@@ -24,7 +24,7 @@ JAVA와 JavaScript, JSP만을 이용하여 MVC패턴의 Model 2방식으로 프�
 <br>
 
 # Preview
-<img src="https://user-images.githubusercontent.com/76239872/126142860-6059962d-0b29-4cab-a7ec-5d6a3f322ffa.mp4">
+<img src="https://user-images.githubusercontent.com/76239872/126157316-a074db32-ca3d-4130-8682-5eaee6f5fbfa.gif">
 
 # 프로젝트 기본 설정
 * Main Color : #00c7ae(Caribbean Green)
