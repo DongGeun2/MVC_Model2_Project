@@ -23,6 +23,9 @@ JAVA와 JavaScript, JSP만을 이용하여 MVC패턴의 Model 2방식으로 프�
 <br>
 <br>
 
+# Preview
+<img src="https://user-images.githubusercontent.com/76239872/126142860-6059962d-0b29-4cab-a7ec-5d6a3f322ffa.mp4">
+
 # 프로젝트 기본 설정
 * Main Color : #00c7ae(Caribbean Green)
 * 기본 폰트 : font-family : Noto Sans, apple-system
